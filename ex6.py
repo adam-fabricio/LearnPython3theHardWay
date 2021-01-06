@@ -12,7 +12,7 @@ binary = "binary"
 do_not = "don't"
 
 # Define a variável y contendo valor de duas outras variaveis
-y = f"Those who know {binary} and those who {do_not}"
+y = f"Those who know {binary} and those who {do_not}"  # 1
 
 # imprime na tela o valor da variável x
 print(x)
@@ -20,12 +20,13 @@ print(x)
 print(y)
 
 # imprime na tela o valor da variavel x com uma string antes
-print(f"I said: {x}")
+print(f"I said: {x}")  # 2
 # imprime na tela um texto contendo o valor de uma variável
-print(f"I also said: '{y}'")
+print(f"I also said: '{y}'")  # 3
 
 # Define um valor para variável hilarios
 hilarios = False
+print(type(hilarios))
 # Define outro valor para a variável contendo um espaçõ para outra variável
 joke_evaluation = "isn't that joke so funny?! {}"
 
