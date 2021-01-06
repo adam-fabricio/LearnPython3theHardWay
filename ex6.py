@@ -12,7 +12,7 @@ binary = "binary"
 do_not = "don't"
 
 # Define a variável y contendo valor de duas outras variaveis
-y = f"Those who know {binary} and those who {do_not}"  # 1
+y = f"Those who know {binary} and those who {do_not}"  # 1 e 2
 
 # imprime na tela o valor da variável x
 print(x)
@@ -20,13 +20,12 @@ print(x)
 print(y)
 
 # imprime na tela o valor da variavel x com uma string antes
-print(f"I said: {x}")  # 2
+print(f"I said: {x}")  # 3
 # imprime na tela um texto contendo o valor de uma variável
-print(f"I also said: '{y}'")  # 3
+print(f"I also said: '{y}'")  # 4
 
 # Define um valor para variável hilarios
 hilarios = False
-print(type(hilarios))
 # Define outro valor para a variável contendo um espaçõ para outra variável
 joke_evaluation = "isn't that joke so funny?! {}"
 
@@ -41,4 +40,8 @@ e = "a string with a right side."
 # imprime na tela o valor de w + e
 print(w + e)
 
-"""Study Drills."""
+"""Study Drills.
+3 -  Sim, porque nos outros espaços eu estou inserindo um int na string e em
+     outro momento estou inserindo um boolean.
+4 - Porque ao somar as strings eu estou na verdade concatenando elas.
+"""
