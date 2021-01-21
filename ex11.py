@@ -10,6 +10,11 @@ weight = input()
 
 print(f"So, you're {age} old, {height} tall and {weight} heavy.")
 
-print('\n\n', '*' * 60, '\n\n')
+print('\n', '*' * 60, '\n', sep='')
 
-print('Então, você tem {} anos, {} de altura e {} de peso.'.format(age, height, weigt))
+print('Então, você tem {} anos, {} de altura e {} de peso.'
+     .format(age, height, weight))
+
+print('\n', '*' * 60, '\n', sep='')
+
+print('De novo, vc tem', age, 'anos,', height, 'de altura e', weight, 'de peso')
