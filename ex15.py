@@ -29,5 +29,12 @@ print(txt_again.read())
 """Study Drills
 
 1. Abouve each line, write out in English wat that line does.
+2. If you are not sure, ask someone for help or search online. Many times searching for "python3.6 THING" will find answers to what that THING does in Python. Try searching for python3.6 open"
+3. I used the word "commands" here but commands are also called "functions" and "methods." You will learn about functions and methods later int the book.
+4. Get rid of the lines 10-15 where you used input and run the scriot again.
+5. Use only input and try the script that way. Why is one way if getting the file name better than another?
+
+6. Start python shell, and use open fro the pompt just like in thus origran. Notice  how you can open files and run read on them from whitin python3.6?
+7. Have your scipt also call close() on the txt and txt_again variables. It's important to close files when you are done with them.
 
 """
