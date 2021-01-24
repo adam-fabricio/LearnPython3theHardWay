@@ -27,7 +27,7 @@ print("I'm goung towrite these to the file.")
 
 target.write(line1)
 target.write('\n')
-target.write(line1)
+target.write(line2)
 target.write("\n")
 target.write(line3)
 target.write('\n')
