@@ -18,19 +18,27 @@ print("Truncating the files. Godbye!")
 target.truncate()
 
 print("Now I'm going to ask you for tree lines.")
+#  Original
+#  line1 = input("line1: ")
+#  line2 = input("line2: ")
+#  line3 = input("line3: ")
 
-line1 = input("line1: ")
-line2 = input("line2: ")
-line3 = input("line3: ")
+#  Primeira tentaiva
+#  all_lines = f"{line1}\n{line2}\n{line3}"
+
+#  Segunda tentativa
+all_lines = f"{input('line1: ')}\n{input('line2: ')}\n{input('line 3: ')}"
+
 
 print("I'm goung towrite these to the file.")
 
-target.write(line1)
-target.write('\n')
-target.write(line2)
-target.write("\n")
-target.write(line3)
-target.write('\n')
+target.write(all_lines)
+#  target.write(line1)
+#  target.write('\n')
+#  target.write(line2)
+#  target.write("\n")
+#  target.write(line3)
+#  target.write('\n')
 
 print("And finally, we close it.")
 target.close()
@@ -49,5 +57,7 @@ txt = open(filename)
 
 print(f"Here´s is your file created: {filename}")
 print(txt.read())
+
+print("\n", 'x' * 20, " Study Drill - 3 ", "x" * 20, sep='')
 
 
