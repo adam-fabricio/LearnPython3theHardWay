@@ -12,33 +12,14 @@ print("If you want that, hit RETURN.")
 input("?")
 
 print("Opening the file...")
-target = open(filename, 'w')
+target = open(filename,'w')
 
 print("Truncating the files. Godbye!")
 target.truncate()
 
-print("Now I'm going to ask you for tree lines.")
-#  Original
-#  line1 = input("line1: ")
-#  line2 = input("line2: ")
-#  line3 = input("line3: ")
-
-#  Primeira tentaiva
-#  all_lines = f"{line1}\n{line2}\n{line3}"
-
-#  Segunda tentativa
-all_lines = f"{input('line1: ')}\n{input('line2: ')}\n{input('line 3: ')}"
-
-
-print("I'm goung towrite these to the file.")
-
-target.write(all_lines)
-#  target.write(line1)
-#  target.write('\n')
-#  target.write(line2)
-#  target.write("\n")
-#  target.write(line3)
-#  target.write('\n')
+print("Now I'm going to ask and write tree lines.")
+target.write("{}\n{}\n{}".format(input("line1: "),
+             input("line2: "), input("line3: ")))
 
 print("And finally, we close it.")
 target.close()
@@ -48,6 +29,10 @@ target.close()
 1. Não aplicavel
 2. Write a script similar to the last exercise that uses read and argv to read the file ou just created
 3. There's too much repetitions in this file. Use strigs, formats, and escapes to print out line 1, line2 and line 3 with just one target.write() command insted of six)
+4. Find out why we had to pass a 'w' as an extra parameter to open. Hint: open tries to be safe by making you want to write a file
+R. Because the default parameter is read not write.
+5. If you ope the file with 'w' mod, then function and see if that's true.
+R. Is truue, parameter w is alred truncated file.
 """
 
 
