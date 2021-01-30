@@ -35,3 +35,5 @@ what = add(age, subtract(height, multiply(weight, divide(iq,2))))
 
 print("That becomes: ", what, "Can you do it by hand?")
 
+print(age + ( height - ( weight * (iq / 2))))
+
