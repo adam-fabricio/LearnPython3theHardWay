@@ -48,3 +48,28 @@ numbers = lista_de_numeros(10, 2)
 for num in numbers:
     print(num)
 
+'''Study drills 5 - Write it to use for-loops and range. 
+Do you need the incrementor in the middle anymore? 
+What happens if you do not get rid of it?
+'''
+
+def lista_com_for(tamanho, incremento):
+    '''Gerando uma lista de valor com incremneto usando
+    for'''
+    numbers = []
+    for i in range(0, tamanho, incremento):
+        print(f"At the top is {i}")
+        numbers.append(i)
+
+        print("Numbers now: ", numbers)
+        print(f"At the bottom i is {i}")
+
+    return numbers
+
+
+print("The numbers: ")
+
+numbers = lista_com_for(110, 2)
+
+for num in numbers:
+    print(num)
