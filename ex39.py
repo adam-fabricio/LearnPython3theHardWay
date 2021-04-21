@@ -37,20 +37,19 @@ print("Florida has: ", cities[states['Florida']])
 
 #  print every state abbreviation
 print('-' * 10)
-print(states.items())
-for state, abrev in list(states.items()):
+for state, abbrev in list(states.items()): # Digitado abbrev com um b
     print(f"{state} is abbreviated {abbrev}")
 
 # print everty city in state
 print('-' * 10)
-for abrev, city in list(cities.items()):
+for abbrev, city in list(cities.items()):
     print(f"{abbrev} has the city {city}")
 
 # now do both at the same time
 print('-' * 10)
-for state, abbrev in list(cities.items()):
+for state, abbrev in list(states.items()): # Trocado o state por cities
     print(f"{state} state is abbreviated {abbrev}")
-    print(f"ans has city {cities[abbrev]}")
+    print(f"and has city {cities[abbrev]}")
 
 print('-' * 10)
 # safely get a abbreviation by state that might not be there
