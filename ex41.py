@@ -16,9 +16,9 @@ PHRASES = {
     "class %%%(object):\n\tdef ***(self,@@@)":
         "class %%% has-a *** function that takes self and @@@ params.",
     "*** = %%%()":
-        "Set *** to a instance of class %%%."
+        "Set *** to a instance of class %%%.",
     "***.***(@@@)": 
-        "From *** get the *** function. call it with params self, @@@."
+        "From *** get the *** function. call it with params self, @@@.",
     "***.*** = '***'":
         "From *** get the *** attribute and set it to '***'."
 }
@@ -31,53 +31,54 @@ else:
 
 # Load the words from the website.
 for words in urlopen(WORD_URL).readlines():
-    WORDS.apped(str(words.strip(), encoding="utf-8"
+    WORDS.append(str(words.strip(), encoding="utf-8"))
 
 
-def converts(snippet, phrase):
-    class_names = [w.captalize() for w in
+def convert(snippet, phrase):
+    class_names = [w.capitalize() for w in
                    random.sample(WORDS, snippet.count("%%%"))]
     other_names = random.sample(WORDS, snippet.count("***"))
     results = []
     param_names = []
 
-    for i in range(0, nippet.count("@@@"):
+    for i in range(0, snippet.count("@@@")):
         param_count = random.randint(1,3)
-        param_names.append(', ', join(
-            random.sample(WORDS, param_count)))
+        param_names.append(', '.join(random.sample(WORDS, param_count)))
 
-    for setence in snippet, phrase:
-        result = sentece[:]
+    for sentence in snippet, phrase:
+        result = sentence[:]
 
-    # fake class names
-    for word in class_names:
-        result = result.replace("%%%", word, 1)
+        # fake class names
+        for word in class_names:
+            result = result.replace("%%%", word, 1)
 
-    # fake other names
-    for word in other_names:
-        result = result.replace("***", word, 1)
+        # fake other names
+        for word in other_names:
+            result = result.replace("***", word, 1)
 
-    # fake parameter lists.
-    for word in param_names:
-        result = result.replace("@@@", word, 1)
-
+        # fake parameter lists.
+        for word in param_names:
+            result = result.replace("@@@", word, 1)
         results.append(result)
 
+    return results
+
+# keep going until they hit CTRL-D
 try:
     while True:
-        snippet = list(PHRASES.keys())
-        random,shuffle(snippet)
+        snippets = list(PHRASES.keys())
+        random.shuffle(snippets)
 
-            for snippet in snippets:
-                phrase = PHRASES[snippet]
+        for snippet in snippets:
+            phrase = PHRASES[snippet]
+            question, answer = convert(snippet, phrase)
+            if PHRASE_FIRST:
                 question, answer = convert(snippet, phrase)
-                if PHRASE_FIRST:
-                    question, answer = convert(snippet, phrase)
 
-                    print(question)
+                print(question)
 
-                    input("> ")
-                    print(f"ANSWER: {answer}\n\n")
+                input("> ")
+                print(f"ANSWER: {answer}\n\n")
 except EOFError:
     print("\nBye")
 
