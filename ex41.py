@@ -10,7 +10,7 @@ WORDS = []
 
 PHRASES = {
     "class %%%(%%%):":
-        "Make a class nade %%% that is-a %%%.",
+        "Make a class named %%% that is-a %%%.",
     "class %%%(obect):\n\tdef __init__(self, ***)" :
         "class %%% has-a __init__ that takes self and *** params.",
     "class %%%(object):\n\tdef ***(self,@@@)":
@@ -40,7 +40,7 @@ def convert(snippet, phrase):
     other_names = random.sample(WORDS, snippet.count("***"))
     results = []
     param_names = []
-
+     
     for i in range(0, snippet.count("@@@")):
         param_count = random.randint(1,3)
         param_names.append(', '.join(random.sample(WORDS, param_count)))
@@ -73,12 +73,12 @@ try:
             phrase = PHRASES[snippet]
             question, answer = convert(snippet, phrase)
             if PHRASE_FIRST:
-                question, answer = convert(snippet, phrase)
+                question, answer = answer, question
 
-                print(question)
+            print(question)
 
-                input("> ")
-                print(f"ANSWER: {answer}\n\n")
+            input("> ")
+            print(f"ANSWER: {answer}\n\n")
 except EOFError:
     print("\nBye")
 
