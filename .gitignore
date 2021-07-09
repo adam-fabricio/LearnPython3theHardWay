@@ -2,3 +2,5 @@
 venv
 teste.*
 .venvs
+__pycache__
+*.pyc
