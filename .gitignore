@@ -4,3 +4,4 @@ teste.*
 .venvs
 __pycache__
 *.pyc
+.venv
