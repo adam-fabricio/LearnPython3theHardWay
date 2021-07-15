@@ -29,10 +29,10 @@ def test_stops():
 
 
 def test_nouns():
-    assert_equal(lexicon.scan("bear"), [('noum', 'bear')])
+    assert_equal(lexicon.scan("bear"), [('noun', 'bear')])
     result = lexicon.scan("bear princess")
-    assert_equal(result, [('noum', 'bear'),
-                          ('noum', 'princess')])
+    assert_equal(result, [('noun', 'bear'),
+                          ('noun', 'princess')])
 
 
 def test_numbers():
@@ -45,8 +45,32 @@ def test_numbers():
 def test_errors():
     assert_equal(lexicon.scan("adfafdsafdas"), [('error', 'adfafdsafdas')])
     result = lexicon.scan("bear IAS princess")
-    assert_equal(result, [('noum', 'bear'),
+    assert_equal(result, [('noun', 'bear'),
                           ('error', 'IAS'),
-                          ('noum', 'princess')])
+                          ('noun', 'princess')])
 
+def test_sentence():
+    sentence1 = lexicon.scan("open door")
+    sentence2 = lexicon.scan("open the door")
+    sentence3 = lexicon.scan("go THROUGH the door")
+    sentence4 = lexicon.scan("punch bear")
+    sentence5 = lexicon.scan("Punch the Bear in the FACE")
+
+    assert_equal(sentence1, [('verb', 'open'),
+                             ('noun', 'door')])
+    assert_equal(sentence2, [('verb', 'open'),
+                             ('stop', 'the'),
+                             ('noun', 'door')])
+    assert_equal(sentence3, [('verb', 'go'),
+                             ('error', 'THROUGH'),
+                             ('stop', 'the'),
+                             ('noun', 'door')])
+    assert_equal(sentence4, [('verb', 'punch'),
+                            ('noun', 'bear')])
+    assert_equal(sentence5, [('verb', 'Punch'),
+                             ('stop', 'the'),
+                             ('noun', 'Bear'),
+                             ('stop', 'in'),
+                             ('stop', 'the'),
+                             ('noun', 'FACE')])
 
