@@ -55,6 +55,7 @@ def test_sentence():
     sentence3 = lexicon.scan("go THROUGH the door")
     sentence4 = lexicon.scan("punch bear")
     sentence5 = lexicon.scan("Punch the Bear in the FACE")
+    sentence6 = lexicon.scan("run north")
 
     assert_equal(sentence1, [('verb', 'open'),
                              ('noun', 'door')])
@@ -73,4 +74,5 @@ def test_sentence():
                              ('stop', 'in'),
                              ('stop', 'the'),
                              ('noun', 'FACE')])
-
+    assert_equal(sentence6, [('verb', 'run'),
+                             ('direction', 'north')])

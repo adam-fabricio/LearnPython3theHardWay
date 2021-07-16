@@ -41,7 +41,7 @@ class Is_a_verb(object):
 
     def check(self, word):
         """check if word is a verb."""
-        __verbs = ['go', 'stop', 'kill', 'eat', 'open', 'punch']
+        __verbs = ['go', 'stop', 'kill', 'eat', 'open', 'punch', 'run']
 
         if word.lower() in __verbs:
             return ('verb', word)
@@ -74,7 +74,7 @@ class Is_a_noun(object):
 
     def check(self, word):
         """Check if word is a noum."""
-        __noums = ['door', 'bear', 'princess', 'cabinet', 'face']
+        __noums = ['door', 'bear', 'princess', 'cabinet', 'face', 'honey']
 
         if word.lower() in __noums:
             return ('noun', word)
