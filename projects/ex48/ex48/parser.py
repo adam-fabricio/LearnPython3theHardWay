@@ -56,6 +56,9 @@ class Sentence(object):
         self.object = obj[1]
 
 def peek(word_list):
+    """Verifica se existe a lista de palavras e retorna
+    O primeiro elemento da primeira tupla.
+    Caso nao exista retorna None."""
     if word_list:
         word = word_list[0]
         return word[0]
@@ -64,6 +67,8 @@ def peek(word_list):
 
 
 def match(word_list, expecting):
+    """Caso a primeira tupla da lista seja o tipo esperado retorne a tupla e 
+    remove a tupla da lista ou retorna None."""
     if word_list:
         word = word_list.pop(0)
 
@@ -76,10 +81,13 @@ def match(word_list, expecting):
 
 
 def skip(word_list, word_type):
-    while peek(word_list) == 'verb':
+    """Retorna lista de tuplas, menos as do tipo especificada."""
+    while peek(word_list) == word_type:
         match(word_list, word_type)
 
 def parse_verb(word_list):
+    """Se a proxima lista de palavra for um verbo retorna a tupla ou 
+    aoresenta erro de esperar que seja um verbo."""
     skip(word_list, 'stop')
 
     if peek(word_list) == 'verb':
@@ -88,6 +96,8 @@ def parse_verb(word_list):
         raise ParserError("Expected a verb next.")
 
 def parse_object(word_list):
+    """Verifica se a proxima palavra for um objeto retorna a tupla ou
+    apresenta erro."""
     skip(word_list, 'stop')
     next_word = peek(word_list)
 
@@ -100,6 +110,9 @@ def parse_object(word_list):
 
 
 def parse_subject(word_list):
+    """Se a primeira palavra for um nome, entao ele sera o sujeito.
+    Se for um verbo, entao o sujeito sera o player.
+    Caso contrario dara erro."""
     skip(word_list, 'stop')
     next_word = peek(word_list)
 
@@ -111,9 +124,12 @@ def parse_subject(word_list):
         raise ParserError("Expeced a verb next.")
 
 
+
 def parse_sentence(word_list):
     subj = parse_subject(word_list)
     verb = parse_verb(word_list)
     obj = parse_object(word_list)
 
     return Sentence(subj, verb, obj)
+
+
