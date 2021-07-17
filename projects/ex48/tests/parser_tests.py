@@ -16,4 +16,6 @@ def test_parser():
     result = [sentence.subject, sentence.verb, sentence.object]
     assert_equal(result, ['bear', 'eat', 'honey'])
 
+    sentence_list = lexicon.scan("the bear kill")
+    assert_raises(parser.ParserError, parser.parse_sentence, sentence_list)
 
