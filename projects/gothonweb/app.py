@@ -1,14 +1,22 @@
-"""Exercise 50 - Your Firs Website."""
+"""Exercise 51 - Form."""
 
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
+@app.route("/hello", methods=['POST', 'GET'])
+def index():
     greeting = "Hello World"
-    greeting = None
-    return render_template("index.html", greeting=greeting)
+    print(request.method)
+    if request.method == "POST":
+        name = request.form['name']
+        greet = request.form['greet']
+        greeting = f"{greet}, {name}"
+        return render_template("index.html", greeting=greeting)
+    else:
+        return render_template("hello_form.html")
 
 if __name__ == "__main__":
     app.run()
+
