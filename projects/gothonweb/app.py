@@ -8,13 +8,12 @@ app = Flask(__name__)
 @app.route("/hello", methods=['POST', 'GET'])
 def index():
     greeting = "Hello World"
-    print(request.method)
     if request.method == "POST":
         name = request.form['name']
         greet = request.form['greet']
         greeting = f"{greet}, {name}"
         return render_template("index.html", greeting=greeting)
-    else:
+    elif request.method == "GET":
         return render_template("hello_form.html")
 
 if __name__ == "__main__":
